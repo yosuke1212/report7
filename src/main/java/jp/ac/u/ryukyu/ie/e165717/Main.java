@@ -83,7 +83,7 @@ public class Main {
             System.out.print("どこに置きますか? ");
             Scanner sc = new Scanner(System.in);
             String a = sc.next();
-            int x = Integer.parseInt(System.console().readLine());
+            int x  = Integer.parseInt(System.console().readLine());
             if (x < 0 || x >= 25 || bd[x] != 0) {
                 System.out.print("反則です。あなたの負けです。\n");
                 break;
@@ -98,10 +98,18 @@ public class Main {
             int y = computer();
             bd[y] = 2;
             displayBoard();
-            System.out.print("コンピュータは" + y + "に置きました。\n");
+            System.out.print("コンピュータは"+y+"に置きました。\n");
             // 判定
             r = judge();
             if (r != 0) break;
+        }
+        // 結果表示
+        if (r == 1) {
+            System.out.printf("あなたの勝ちです。\n");
+        } else if (r == 2) {
+            System.out.printf("コンピュータの勝です。\n");
+        } else {
+            System.out.printf("引き分けです。\n");
         }
     }
 }
